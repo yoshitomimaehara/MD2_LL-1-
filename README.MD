@@ -4,4 +4,4 @@ Discrete Math 2 Final Project
 
 **Programming Language:** C++
 
-**Use:** Conio2.h
+**Use:** Conio2.h (library)
