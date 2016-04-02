@@ -90,40 +90,41 @@ void CrearGramatica(){//crear una nueva gramatica
 	bool band=false;
 	char op3;
 	if(prod.size()==0){ // verifica si hay alguna gramatica cargada
-  LimpiarGramatica();
-  cout<<"Las Producciones son de la forma #->####\n";
-	cout<<"Se debe comenzar con S\n";
-	cout<<"Cuantas Produciones desea Ingresar:";cin>>n;
-	while(n>i){ // verifica que existan producciones (>0)
-        cout<<i+1<<"."; 
-		L.Izquierda=getche(); // captura el caracter N.T
-        if(i==0 && L.Izquierda=='S'){ // verifica que no haygan producciones cargadas y que el N.T sea S
-          band=true;            
-        }
-        if(isupper(L.Izquierda) && band==true){ // comprueba que el N.T sea Mayuscula
-          cout<<"->";
-		  cin>>L.Derecha; // ingresa terminal
-		  i++;
-		  prod.push_back(L); //guarda las producciones
-		}else{
-         delline();
-         gotoxy(1,i+4); // limpia la pantalla dependiendo de las producciones y las 4 lineas adicionales de instrucciones
-        }
-	}
-    CrearArchivo();
- }else{
-       cout<<"ya existe una gramatica cargada!\n";
-       cout<<"Desea crear una nueva gramatica(s/n):";cin>>op3;
-       switch(op3){
-          case 's':
-               system("cls");
-               prod.clear();
-               CrearGramatica();
-               break;
-          default:
-             return;
-             break;
-       }
+	  	LimpiarGramatica();
+	  	cout<<"Las Producciones son de la forma #->####\n";
+		cout<<"Se debe comenzar con S\n";
+		cout<<"Cuantas Produciones desea Ingresar:";cin>>n;
+		while(n>i){ // verifica que existan producciones (>0)
+        	cout<<i+1<<"."; 
+			L.Izquierda=getche(); // captura el caracter N.T
+        	if(i==0 && L.Izquierda=='S'){ // verifica que no hayan producciones cargadas y que el N.T sea S
+          		band=true;            
+        	}
+	        if(isupper(L.Izquierda) && band==true){ // comprueba que el N.T sea Mayuscula
+	        	cout<<"->";
+				cin>>L.Derecha; // ingresa terminal
+				i++;
+				prod.push_back(L); //guarda las producciones
+			}else{
+	        	 delline();
+	        	// limpia la pantalla dependiendo de las producciones y las 4 lineas adicionales de instrucciones
+	         	gotoxy(1,i+4); 
+	        }
+		}
+    	CrearArchivo();
+ 	}else{
+ 		cout<<"ya existe una gramatica cargada!\n";
+    	cout<<"Desea crear una nueva gramatica(s/n):";cin>>op3;
+    	switch(op3){
+	    	 case 's':
+	         	system("cls");
+	            prod.clear();
+	            CrearGramatica();
+	            break;
+	          default:
+	             return;
+	             break;
+	     }
     }
 }//fin crearGramatica
 
